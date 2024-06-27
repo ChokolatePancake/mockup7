@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 70px);
+  gap: 30px;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+}

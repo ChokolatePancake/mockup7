@@ -1,0 +1,121 @@
+.banner {
+  background-color: $peach;
+  width: 100%;
+  position: relative;
+
+  &__gradient {
+    position: absolute;
+    background-image: linear-gradient(to top, $peach , transparent);
+    width: 100%;
+    z-index: 1; // For being upper image
+    height: 100%;
+    grid-column: 1 / -1; // Fill full container width
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  &__dots {
+     position: absolute;
+    z-index: 3; // For being upper gradient
+     bottom: 57px;
+     display: flex;
+     justify-content: center;
+     width: 100%;
+     padding: 0;
+     margin: 0;
+     list-style: none;
+    li {
+      position: relative;
+      display: inline-block;
+      width: 8.5px;
+      height: 8px;
+      margin: 0 5px;
+      padding: 0;
+      cursor: pointer;
+      button {
+        font-size: 0;
+        line-height: 0;
+        display: block;
+        width: 7.5px;
+        height: 7.5px;
+        padding: 5px;
+        cursor: pointer;
+        color: transparent;
+        border: 0;
+        outline: none;
+        background: transparent;
+      }
+      button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 7.5px;
+        height: 7.5px;
+        border: 2px solid white;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+      }
+      &.slick-active button:before {
+        background-color: white;
+      }
+    }
+   }
+
+  &__title {
+    grid-column: 2 / 3;
+    font-size: 86px;
+    font-weight: 590;
+    letter-spacing: -1px;
+
+    color: $white;
+    font-family: "Montserrat", sans-serif;
+    height: 100%;
+    align-content: center;
+    margin-top: -45px;
+  }
+
+  &__buttons-container {
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);  // For centering it
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 64px);
+    gap: 28px;
+    justify-content: center;
+    align-content: center;
+  }
+
+  &__button {
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    display: flex;
+    padding: 10px 19px;
+    max-height: 48px;
+    max-width: 201px;
+    border: 3px solid $white;
+    border-radius: 5px;
+    margin-top: 228px;
+    h3 {
+      color: $white;
+      padding-left: 14px;
+      font-size: 27.5px;
+      margin: auto 0;
+    }
+    &-1 {
+      grid-column: 4/ 7;
+    }
+    &-2 {
+      img {
+        height: 45px;
+        width: 43px;
+      }
+      grid-column: 7/10;
+      padding-left: 21px;
+    }
+  }
+ }
