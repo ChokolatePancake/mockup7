@@ -6,8 +6,10 @@ $breakpoints: (
         tablet: "768px",
         laptop: "1024px",
         desktop: "1280px",
-        slider: "850px",
-        video: "1020px"
+        largeDesktop: "1440px",
+        xl-desktop: " 1680px",
+        xxl-desktop: " 1800px",
+        hd: "1920px"
 ) !default;
 
 @mixin breakpoint($breakpoint) {

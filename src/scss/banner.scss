@@ -17,7 +17,7 @@
   &__dots {
      position: absolute;
     z-index: 3; // For being upper gradient
-     bottom: 57px;
+     bottom: 59px;
      display: flex;
      justify-content: center;
      width: 100%;
@@ -36,8 +36,8 @@
         font-size: 0;
         line-height: 0;
         display: block;
-        width: 7.5px;
-        height: 7.5px;
+        width: 8px;
+        height: 8px;
         padding: 5px;
         cursor: pointer;
         color: transparent;
@@ -50,8 +50,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 7.5px;
-        height: 7.5px;
+        width: 8px;
+        height: 8px;
         border: 2px solid white;
         border-radius: 50%;
         transition: background-color 0.3s ease;
@@ -64,15 +64,15 @@
 
   &__title {
     grid-column: 2 / 3;
-    font-size: 86px;
-    font-weight: 590;
-    letter-spacing: -1px;
+    font-size: 89px;
+    font-weight: 550;
+    letter-spacing: -0.5px;
 
     color: $white;
     font-family: "Montserrat", sans-serif;
     height: 100%;
     align-content: center;
-    margin-top: -45px;
+    margin-top: -47px;
   }
 
   &__buttons-container {
@@ -82,28 +82,32 @@
     transform: translateX(-50%);  // For centering it
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(12, 64px);
-    gap: 28px;
+    grid-template-columns: repeat(12, 70px);
+    gap: 26px;
     justify-content: center;
     align-content: center;
+    margin-top: 4px;
   }
 
   &__button {
     img {
-      width: 50px;
-      height: 50px;
+      width: 53px;
+      height: 53px;
+      transition: filter 0.3s ease; // For slowly changing color
     }
     display: flex;
-    padding: 10px 19px;
+    padding: 11px 18px;
     max-height: 48px;
-    max-width: 201px;
+    width: 213px;
     border: 3px solid $white;
     border-radius: 5px;
-    margin-top: 228px;
+    margin-top: 229px;
+    transition: background-color 0.3s ease; // For hover changing speed
     h3 {
+      transition: color 0.3s ease;
       color: $white;
-      padding-left: 14px;
-      font-size: 27.5px;
+      padding-left: 16px;
+      font-size: 29px;
       margin: auto 0;
     }
     &-1 {
@@ -111,11 +115,156 @@
     }
     &-2 {
       img {
-        height: 45px;
+        height: 47px;
         width: 43px;
+      }
+      h3 {
+        padding-left: 21px;
       }
       grid-column: 7/10;
       padding-left: 21px;
     }
+    &:hover {
+      background-color: $white;
+
+      img {
+        /* For changing white png image to peach color */
+        filter: brightness(0) saturate(100%) invert(63%) sepia(19%) saturate(1391%) hue-rotate(314deg) brightness(95%) contrast(94%);
+      }
+
+      h3 {
+        color: $peach;
+      }
+    }
   }
- }
+  &__block {
+    transition: margin 0.3s ease;
+  }
+  &__slider {
+    transition: margin 0.3s ease, width 0.5s, height 0.5s;
+  }
+  // Breakpoint for xxl desktop(1800px)
+  @include breakpoint(xxl-desktop) {
+    &__slider {
+      margin-left: -350px;
+    }
+    &__dots {
+      margin-left: 170px;
+    }
+    &__block {
+      margin-left: 190px;
+    }
+  }
+
+  // Breakpoint for xl desktop(1680px)
+  @include breakpoint(xl-desktop) {
+    &__block {
+      margin-left: 390px;
+      padding-top: 170px;
+      width: 1500px;
+    }
+  }
+
+  // Breakpoint for large desktop(1440px)
+  @include breakpoint(largeDesktop) {
+    &__block {
+      margin-left: 350px;
+      padding-top: 110px;
+      width: 1300px;
+    }
+
+    &__title {
+      font-size: 80px;
+    }
+  }
+
+  // Breakpoint for desktop(1280px)
+  @include breakpoint(desktop) {
+    &__slider {
+      margin-left: -300px;
+    }
+    &__dots {
+      margin-left: 145px;
+    }
+    &__block {
+      margin-left: 200px;
+    }
+  }
+
+  // Breakpoint for laptop(1024px)
+  @include breakpoint(laptop) {
+    &__block {
+      margin-left: 250px;
+      padding-top: 110px;
+      width: 970px;
+    }
+    &__title {
+      font-size: 72px;
+    }
+    &__button {
+      margin-top: 160px;
+    }
+  }
+
+  // Breakpoint for tablet(769px)
+  @include breakpoint(tablet) {
+    &__block {
+      padding-top: 200px;
+      margin-left: 210px;
+    }
+    &__button {
+      margin-left: 45px;
+      width: 180px;
+      max-height: 40px;
+      h3 {
+        font-size: 20px;
+      }
+      &-1 {
+        grid-column:  5/6;
+        img {
+          height: 43px;
+          width: 43px;
+        }
+      }
+      &-2 {
+        grid-column: 5/6;
+        margin-top: 0;
+        img {
+          height: 42px;
+          width: 38px;
+        }
+        h3 {
+          padding-left: 16px;
+        }
+      }
+    }
+    &__title {
+      margin-top: -80px;
+      font-size: 60px;
+    }
+  }
+
+  // Breakpoint for phablet (600px)
+  @include breakpoint(phablet) {
+    &__block {
+      padding-top: 280px;
+      margin-left: 50px;
+    }
+    &__title {
+      text-align: center;
+      max-width: 300px;
+      margin-top: -100px;
+    }
+    &__button {
+      margin-left: 63px;
+      &-1 {
+        margin-top: 210px;
+      }
+    }
+  }
+
+  // Breakpoint for large phone(480px)
+  @include breakpoint(largePhone) {
+    
+  }
+}
