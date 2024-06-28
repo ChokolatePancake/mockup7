@@ -3,13 +3,12 @@
 
   &__dots {
     position: absolute;
-    z-index: 3; // For being upper gradient
     bottom: -25px;
     display: flex;
     justify-content: center;
     width: 100%;
     padding: 0;
-    margin: 0 0 0 -5px;
+    margin: 0 0 0 -5px; // To be centered on wide screens if more than 3 blocks
     list-style: none;
     li {
       position: relative;
@@ -84,5 +83,29 @@
         margin: 0 14px 0 -19px;
       }
     }
+  }
+
+  @include breakpoint(largeDesktop) {
+    &__content {
+      max-width: 1000px;
+    }
+    &__block {
+      margin: 21px 15px 0 60px;
+    }
+  }
+
+  // There appear dots and number of slides to show is 2
+  @include breakpoint(md) {
+    &__content {
+      max-width: 650px;
+    }
+    &__block {
+      margin-left: 47px;
+      margin-right: 28px;
+    }
+  }
+
+  @include breakpoint(tablet) {
+
   }
 }

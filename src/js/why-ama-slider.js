@@ -2,7 +2,7 @@ $(document).ready(function(){
     const sliderConfig = {
         breakpoints: [
             { maxWidth: 480, minSlides: 2, slidesToShow: 1 },
-            { maxWidth: 768, minSlides: 3, slidesToShow: 2 },
+            { maxWidth: 999, minSlides: 3, slidesToShow: 2 },
             { maxWidth: Infinity, minSlides: 4, slidesToShow: 3 }
         ]
     };
@@ -15,9 +15,11 @@ $(document).ready(function(){
         let settings = {
             arrows: false,
             dots: false,
-            infinite: false,
+            infinite: true,
             speed: 300,
             slidesToShow: 1,
+            autoplay: true,
+            autoplaySpeed: 10000,
             slidesToScroll: 1,
             dotsClass: 'why-ama__dots'
         };
