@@ -1,0 +1,88 @@
+.why-ama {
+  color: $dark-grey;
+
+  &__dots {
+    position: absolute;
+    z-index: 3; // For being upper gradient
+    bottom: -25px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 0 -5px;
+    list-style: none;
+    li {
+      position: relative;
+      display: inline-block;
+      width: 8.5px;
+      height: 8px;
+      margin: 0 5px;
+      padding: 0;
+      cursor: pointer;
+      button {
+        font-size: 0;
+        line-height: 0;
+        display: block;
+        width: 8px;
+        height: 8px;
+        padding: 5px;
+        cursor: pointer;
+        color: transparent;
+        border: 0;
+        outline: none;
+        background: transparent;
+      }
+      button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        border: 2px solid $light-grey;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+      }
+      &.slick-active button:before {
+          background-color: $light-grey;
+      }
+    }
+  }
+  text-align: center;
+  padding-top: 61px;
+
+  &__content {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 48px;
+  }
+  &__block {
+    max-width: 250px;
+    margin: 21px 15px 0 135px;
+    h3 {
+      color: $light-grey;
+      font-size: 18.5px;
+      padding-top: 20px;
+      margin-bottom: 0;
+      margin-right: 19px;
+    }
+    p {
+      color: $light-grey;
+      padding-top: 3px;
+      line-height: 24px;
+      margin: 0 9px 0 -9px;
+    }
+    &:first-child {
+      h3 {
+        padding-top: 21px;
+        margin-right: 29px;
+      }
+      p {
+        margin: 0 14px 0 -19px;
+      }
+    }
+  }
+}
