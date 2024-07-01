@@ -112,7 +112,7 @@
     &__block {
       max-width: 220px;
       margin-left: 65px;
-      margin-right: 0px;
+      margin-right: 0;
       h3 {
         font-size: 16px;
       }
@@ -123,6 +123,63 @@
         display: block;
         margin: auto;
         width: 180px;
+      }
+    }
+  }
+
+  // Number of slides to show = 1
+  @include breakpoint(phablet) {
+    &__block {
+      max-width: 430px;
+      margin-left: 85px;
+      margin-right: 60px;
+
+      img {
+        width: 300px;
+      }
+      h3 {
+        font-size: 22px;
+      }
+      p {
+        max-width: 350px;
+        margin: 0 auto;
+        font-size: 18px;
+      }
+    }
+  }
+
+  @include breakpoint(largePhone) {
+    &__block {
+      max-width: 320px;
+      margin-left: 80px;
+      margin-right: 75px;
+
+      img {
+        width: 220px;
+      }
+      h3 {
+        font-size: 18px;
+        margin: 18px auto 0;
+      }
+      p {
+        max-width: 220px;
+        font-size: 14px;
+      }
+    }
+  }
+  @include breakpoint(md-phone) {
+    &__block {
+      max-width: 320px;
+      margin-left: 70px;
+      margin-right: 62px;
+      img {
+        width: 180px;
+      }
+      h3 {
+        font-size: 16px;
+      }
+      p {
+        max-width: 180px;
       }
     }
   }
