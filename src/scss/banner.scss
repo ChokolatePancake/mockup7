@@ -106,6 +106,7 @@
     margin-top: 229px;
     transition: background-color 0.3s ease; // For hover changing speed
     h3 {
+      user-select: none;
       transition: color 0.3s ease;
       color: $white;
       padding-left: 16px;
@@ -170,7 +171,7 @@
   // Breakpoint for large desktop(1440px)
   @include breakpoint(largeDesktop) {
     &__block {
-      margin-left: 350px;
+      margin-left: 200px;
       padding-top: 110px;
       width: 1300px;
     }
@@ -189,16 +190,25 @@
       margin-left: 145px;
     }
     &__block {
-      margin-left: 200px;
+      margin-left: -110px;
+      margin-right: 150px;
     }
   }
 
   // Breakpoint for laptop(1024px)
   @include breakpoint(laptop) {
     &__block {
-      margin-left: 250px;
+      margin-left: 0;
+      margin-right: 0;
       padding-top: 110px;
-      width: 970px;
+      overflow: hidden;
+      width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        object-fit: cover;
+      }
     }
     &__title {
       font-size: 72px;
@@ -212,24 +222,22 @@
   @include breakpoint(tablet) {
     &__block {
       padding-top: 200px;
-      margin-left: 210px;
     }
     &__button {
-      margin-left: 60px;
       width: 180px;
       max-height: 40px;
       h3 {
         font-size: 20px;
       }
       &-1 {
-        grid-column:  5/6;
+        grid-column:  1/4;
         img {
           height: 43px;
           width: 43px;
         }
       }
       &-2 {
-        grid-column: 5/6;
+        grid-column: 1/4;
         margin-top: 0;
         img {
           height: 42px;
@@ -250,16 +258,15 @@
   @include breakpoint(phablet) {
     &__block {
       padding-top: 280px;
-      margin-left: 50px;
     }
     &__title {
-      text-align: center;
       max-width: 300px;
+      grid-column: 3/5;
+      text-align: center;
       margin-top: -100px;
       font-size: 54px;
     }
     &__button {
-      margin-left: 63px;
       &-1 {
         margin-top: 210px;
       }
