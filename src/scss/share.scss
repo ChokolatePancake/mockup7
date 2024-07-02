@@ -1,22 +1,88 @@
 .share {
   background-color: $black;
-  &__image {
-    grid-column: 1/6;
-    user-select: none;
-  }
-  &__block {
-    grid-column: 1 / -1;
+  height: 730px;
+  &__content {
+    grid-column: 1/-1;
+    margin-left: -50px;
     display: grid;
     grid-template-columns: subgrid;
   }
-  &__video-text {
-    display: flex;
+  &__dots {
+    @extend %dots-base;
+    position: absolute;
+    z-index: 3;
+    bottom: 185px;
+    margin-left: 30px;
+
+    li {
+      button:before {
+        width: 8px;
+        height: 8px;
+        border: 2px solid $white;
+      }
+
+      &.slick-active button:before {
+        background-color: $white;
+      }
+    }
   }
+
+  &__image {
+    grid-column: 1/4;
+    margin-left: -35px;
+    user-select: none;
+    align-self: end;
+  }
+
+  &__text {
+    display: block;
+    grid-column: 7/12;
+    margin-left: -83px;
+    margin-top: 140px;
+    color: $lighter-grey;
+    h2 {
+      color: $white;
+      font-size: 47px;
+      letter-spacing: 1px;
+      word-spacing: 3px;
+      margin-top: 45px;
+      margin-bottom: 23px;
+    }
+    p {
+      padding-left: 2px;
+      font-size: 18px;
+      margin-top: -4px;
+      line-height: 27px;
+      max-width: 460px;
+      margin-bottom: 53px;
+    }
+  }
+
+  &__block {
+    display: grid !important;
+    margin-left: 50px;
+    grid-template-columns: subgrid;
+    grid-column: 1/-1;
+  }
+
+  &__video-text {
+    padding-left: 4px;
+    display: flex;
+    p {
+      margin-left: 28px;
+      margin-top: -5px;
+      max-width: 250px;
+      line-height: 24px;
+      font-size: 16px;
+    }
+  }
+
   &__video-block {
     position: relative;
     width: 170px;
     height: 95px;
   }
+
   &__video {
     display: none;
     iframe {
@@ -25,31 +91,191 @@
       border-radius: 5px;
     }
   }
+
+  // This class for pink video preview
   &__video-preview {
     position: absolute;
     border-radius: 5px;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $peach;
+
     cursor: pointer;
-    &:before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 0;
-      height: 0;
-      border-top: 30px solid transparent;
-      border-left: 50px solid white;
-      border-bottom: 30px solid transparent;
-    }
+
+    // After click will disappear and replace by youtube video
     &.show {
       display: none;
       +.share__video {
         display: block;
+      }
+    }
+  }
+
+  // 1280px
+  @include breakpoint(desktop) {
+    height: 704px;
+    &__image {
+      grid-column: 3/4;
+      img {
+        max-width: 400px;
+      }
+      margin-top: 120px;
+    }
+    &__dots {
+      margin-left: -15px;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    &__image {
+      grid-column: 1/2;
+    }
+    &__text {
+      grid-column: 2/4;
+    }
+    &__dots {
+      margin-left: -105px;
+    }
+  }
+
+  @include breakpoint(md) {
+    &__content {
+      max-width: 769px;
+    }
+    &__text {
+      margin-left: 10px;
+      h2 {
+        font-size: 38px;
+      }
+      p {
+        margin-bottom: 20px;
+      }
+    }
+    &__video-text {
+      flex-direction: column;
+      p {
+        font-size: 14px;
+        margin-top: 15px;
+        margin-left: 0;
+      }
+    }
+    &__image {
+      margin-left: 10px;
+    }
+    &__dots {
+      bottom: 50px;
+      margin-left: 120px;
+    }
+  }
+
+  // 769px Image goes on background
+  @include breakpoint(tablet) {
+    &__dots {
+      margin-left: 50px;
+    }
+    &__content {
+      max-width: 580px;
+    }
+    &__block {
+      height: 730px!important;
+    }
+    height: 730px;
+    &__text {
+      margin-top: 100px;
+      margin-left: 50px;
+      max-width: 400px;
+      color: $white;
+    }
+
+    &__video-text {
+      p {
+        font-size: 18px;
+        max-width: 400px;
+      }
+    }
+
+    &__video-block {
+      margin: 0 auto;
+      width: 300px;
+      height: 170px;
+    }
+    &__video-preview {
+      img {
+        width: 300px;
+      }
+    }
+    &__video {
+      iframe {
+        width: 300px;
+        height: 164px;
+      }
+    }
+    &__image {
+      img {
+        max-width: 500px;
+      }
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      margin: 0;
+
+      // Add gradient upper image
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background: linear-gradient(to top, $black, transparent);
+        z-index: 1;
+      }
+    }
+  }
+  @include breakpoint(phablet) {
+    &__dots {
+      margin-left: 14px;
+    }
+    &__content {
+      max-width: 480px;
+      margin-left: -100px;
+    }
+    &__text {
+      margin-top: 100px;
+      margin-left: 0;
+      max-width: 400px;
+      text-align: center;
+    }
+    &__image {
+      img {
+        max-width: 460px;
+        margin-left: -30px;
+      }
+      &:before {
+        margin-left: -30px;
+      }
+    }
+  }
+
+  @include breakpoint(largePhone) {
+    &__content {
+      max-width: 320px;
+      margin: 0;
+    }
+    &__text {
+      max-width: 310px;
+      margin-left: -55px;
+      h2 {
+        margin-top: 50px;
+      }
+    }
+    &__dots {
+      margin-left: -7px;
+    }
+
+    &__image {
+      margin-left: -25px;
+      img {
+        max-width: 320px;
       }
     }
   }
