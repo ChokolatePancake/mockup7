@@ -68,12 +68,11 @@
     grid-template-columns: repeat(12, 70px);
     gap: 30px;
     align-content: center;
-    margin-top: 4px;
   }
 
   &__title {
     grid-column: 2 / 11;
-    margin-left: 20px;
+    margin-left: 26px;
     font-size: 89px;
     font-weight: 550;
     letter-spacing: -0.5px;
@@ -82,7 +81,7 @@
     font-family: "Montserrat", sans-serif;
     height: 100%;
     align-content: center;
-    margin-top: -47px;
+    margin-top: -95px;
   }
 
   &__buttons-container {

@@ -3,13 +3,11 @@
   padding-bottom: 113px;
 
   &__dots {
-    position: absolute;
-    bottom: -25px;
     display: flex;
     justify-content: center;
     width: 100%;
     padding: 0;
-    margin: 0 0 0 -5px; // To be centered on wide screens if more than 3 blocks
+    margin: 25px 0 0 0; // To be centered on wide screens if more than 3 blocks
     list-style: none;
     li {
       position: relative;
@@ -104,7 +102,11 @@
     }
   }
 
+  // 1440px
   @include breakpoint(largeDesktop) {
+    &__title {
+      grid-column: 4/8;
+    }
     &__content {
       max-width: 1000px;
     }
@@ -114,17 +116,35 @@
   }
 
   // There appear dots and number of slides to show is 2
-  @include breakpoint(md) {
+  @include breakpoint(laptop) {
+    &__title {
+      grid-column: 3/7;
+      margin-left: -10px;
+    }
     &__content {
-      max-width: 650px;
+      max-width: 760px;
     }
     &__block {
-      margin-left: 47px;
-      margin-right: 28px;
+      margin: 21px 61px 0;
+      img {
+        max-width: 200px;
+        display: block;
+        margin: 0 auto;
+      }
+      p {
+        margin: 0;
+      }
+      h3 {
+        margin-right: 0;
+      }
     }
   }
 
+
   @include breakpoint(tablet) {
+    &__title {
+      grid-column: 2/6;
+    }
     &__content {
       max-width: 580px;
     }
@@ -137,6 +157,7 @@
       }
       p {
         font-size: 14px;
+        max-width: 220px;
       }
       img {
         display: block;
@@ -148,11 +169,19 @@
 
   // Number of slides to show = 1
   @include breakpoint(phablet) {
+    &__title {
+      grid-column: 2/5;
+    }
+    &__content {
+      max-width: 470px;
+    }
     &__block {
-      max-width: 430px;
-      margin-left: 85px;
-      margin-right: 60px;
-
+      max-width: 400px;
+      margin: 21px 30px 0;
+      &:not(:first-child) {
+        margin-left: 50px;
+        margin-right: 17px;
+      }
       img {
         width: 300px;
       }
@@ -160,19 +189,23 @@
         font-size: 22px;
       }
       p {
-        max-width: 350px;
-        margin: 0 auto;
+        margin: 0 auto!important;
         font-size: 18px;
       }
     }
   }
 
   @include breakpoint(largePhone) {
+    &__title {
+      grid-column: 1/4;
+      margin-left: 20px;
+    }
+    &__content {
+      max-width: 310px;
+    }
     &__block {
-      max-width: 320px;
-      margin-left: 80px;
-      margin-right: 75px;
-
+      max-width: 310px;
+      margin-left: 25px;
       img {
         width: 220px;
       }
@@ -183,22 +216,6 @@
       p {
         max-width: 220px;
         font-size: 14px;
-      }
-    }
-  }
-  @include breakpoint(md-phone) {
-    &__block {
-      max-width: 320px;
-      margin-left: 70px;
-      margin-right: 62px;
-      img {
-        width: 180px;
-      }
-      h3 {
-        font-size: 16px;
-      }
-      p {
-        max-width: 180px;
       }
     }
   }

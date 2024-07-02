@@ -3,7 +3,7 @@ $(document).ready(function(){
     const sliderConfig = {
         breakpoints: [
             { maxWidth: 600, minSlides: 2, slidesToShow: 1 },
-            { maxWidth: 999, minSlides: 3, slidesToShow: 2 },
+            { maxWidth: 1024, minSlides: 3, slidesToShow: 2 },
             { maxWidth: Infinity, minSlides: 4, slidesToShow: 3 }
         ]
     };
