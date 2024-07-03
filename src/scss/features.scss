@@ -1,0 +1,237 @@
+.features {
+  background-color: $darker-grey;
+  height: 803px;
+  overflow: hidden;
+  position: relative;
+  &__phone {
+    margin-top: 41px;
+    grid-column: 7/11;
+  }
+
+  &__text {
+    color: $white;
+    margin-top: 172px;
+    h2 {
+      font-size: 48px;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    p {
+      padding-left: 3px;
+      font-size: 18px;
+      line-height: 27px;
+      word-spacing: 0.5px;
+      max-width: 450px;
+      color: $lighter-grey;
+    }
+  }
+
+  &__text-slider {
+    max-height: 800px;
+    grid-column: 2/7;
+    margin-left:  -36px;
+  }
+
+  &__slider-container {
+    margin-left: 2px;
+    margin-top: 64px;
+    background-color: $white;
+    max-width: 471px;
+    height: 231px;
+    border-radius: 5px;
+  }
+
+  &__content {
+    height: 188px;
+  }
+
+  &__block {
+    padding: 35px 30px 0 25px;
+    display: flex;
+  }
+
+  &__description {
+    margin-left: 20px;
+    h4 {
+      margin-top: 0;
+      color: $peach;
+      font-size: 18.5px;
+      margin-bottom: 0;
+    }
+    p {
+      color: $light-grey;
+      margin-top: 9px;
+      padding-left: 3px;
+      word-spacing: 0.6px;
+      max-width: 290px;
+      line-height: 24px;
+    }
+  }
+
+  &__image {
+    margin: 7px;
+  }
+
+  &__dots-container {
+    background-color: $light-peach;
+    height: 43px;
+    border-radius: 0 0 5px 5px;
+  }
+
+  &__dots {
+    @extend %dots-base;
+    position: absolute;
+    z-index: 3;
+    bottom: -30px;
+    left: 30px;
+    justify-content: flex-start;
+
+    li {
+      button:before {
+        width: 8px;
+        height: 8px;
+        border: 2px solid $white;
+      }
+
+      &.slick-active button:before {
+        background-color: $white;
+      }
+    }
+  }
+
+  @include breakpoint(largeDesktop) {
+    &__text-slider {
+      grid-column: 1/6;
+    }
+  }
+
+  @include breakpoint(desktop) {
+    &__text-slider {
+      grid-column: 2/7;
+
+      // For being upper phone
+      z-index: 1;
+    }
+    &__phone {
+      margin-left: -80px;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    &__text-slider {
+      grid-column: 1/6;
+      margin-left: -80px;
+    }
+    &__phone {
+      grid-column: 6/8;
+      margin-left: -100px;
+    }
+  }
+
+  @include breakpoint(md) {
+    &__text-slider {
+      max-width: 380px;
+      margin-left: 20px;
+    }
+    &__block {
+      max-width: 380px;
+      padding: 35px 22px 0 17px;
+    }
+    &__description {
+      margin-left: 15px;
+      p {
+        font-size: 14px;
+        word-spacing: 0;
+      }
+    }
+    &__phone {
+      margin-left: -120px;
+      img {
+         max-width: 400px;
+      }
+    }
+  }
+
+  // Moving phone under the text
+  @include breakpoint(tablet) {
+    &__phone {
+      position: absolute;
+      margin: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      img {
+        max-width: 480px;
+      }
+    }
+
+    &__slider-container {
+      margin-top: 30px;
+    }
+    &__text-slider {
+      margin-left: 0;
+      grid-column: 2/8;
+
+      // Add background for improving readability
+      background-color: rgba($darker-grey, 0.7);
+      box-shadow: 0 0 120px rgba($darker-grey, 0.8);
+    }
+
+    &__text {
+      margin-top: 150px;
+      p {
+
+        // Also for better readability
+        color: $white;
+      }
+    }
+  }
+
+  @include breakpoint(phablet) {
+    &__text-slider {
+      grid-column: 1/8;
+      margin-left: 45px;
+    }
+  }
+
+  @include breakpoint(largePhone) {
+    &__phone {
+      bottom: 0;
+       img {
+         max-width: 320px;
+       }
+    }
+    &__text-slider {
+      margin-left: 5px;
+      max-width: 300px;
+    }
+    &__text {
+      margin-top: 90px;
+      p {
+        font-size: 16px;
+      }
+    }
+    &__image {
+      img {
+        max-width: 80px;
+      }
+    }
+    &__description {
+       h4 {
+         font-size: 16px;
+       }
+      p {
+        line-height: 22px;
+      }
+    }
+    &__block {
+      padding-top: 25px;
+      padding-right: 15px;
+    }
+    &__slider-container {
+      height: 238px;
+    }
+    &__content {
+      height: 195px;
+    }
+  }
+}
