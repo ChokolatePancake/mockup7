@@ -85,12 +85,25 @@
       font-size: 24px;
     }
   }
+  @include breakpoint(md) {
+    height: 704px;
+    &__photo {
+      max-width: 400px;
+      max-height: 400px;
+    }
+    &__description {
+      width: 400px;
+    }
+  }
 }
 .splide {
   width: 100vw;
   overflow: hidden;
 }
 .splide__track {
-  width: 2072px;
+  width:2072px;
   overflow: visible;
+  @include breakpoint(md) {
+    width: 1600px;
+  }
 }
