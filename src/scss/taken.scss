@@ -1,5 +1,5 @@
 .taken {
-  //overflow: hidden;
+  overflow: hidden;
   height: 822px;
   padding-top: 32px;
   &__text {
@@ -52,8 +52,45 @@
       object-position: center;
     }
   }
-  &__content {
-    display: flex;
-    margin-left: -53px;
+  &__block {
+    &:hover {
+      margin-top: -37px;
+      .taken__description {
+        position: absolute;
+        height: 87px;
+        margin-top: -50px;
+      }
+    }
   }
+  &__description {
+    display: flex;
+    justify-content: space-between;
+    background-color: $darkest;
+    color: $white;
+    padding: 20px;
+    width: 518px;
+    &-text {
+      padding: 11px;
+      font-size: 18px;
+    }
+  }
+  &__like {
+    display: flex;
+    //align-content: center;
+    padding-right: 14px;
+    p {
+      padding: 9px 0 0 6px;
+      color: $peach;
+      margin: 0;
+      font-size: 24px;
+    }
+  }
+}
+.splide {
+  width: 100vw;
+  overflow: hidden;
+}
+.splide__track {
+  width: 2072px;
+  overflow: visible;
 }
