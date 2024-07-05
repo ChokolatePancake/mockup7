@@ -1,0 +1,14 @@
+.footer {
+
+  &__message {
+    opacity: 0;
+    &.show {
+      opacity: 1;
+    }
+  }
+  &__input {
+    &.error {
+      border-color: red;
+    }
+  }
+}
