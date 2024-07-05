@@ -1,10 +1,11 @@
 @import "normalize"; // normalize styles
 @import "media"; // import mixin for comfortable adaptive creation
 @import "fonts"; // import fonts
-@import "general";
 @import "variables";
+@import "general";
 @import "banner";
 @import "why-ama";
 @import "share";
 @import "features";
 @import "taken";
+@import "cta";

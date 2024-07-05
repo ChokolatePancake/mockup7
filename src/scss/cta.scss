@@ -1,0 +1,184 @@
+.cta {
+  background-color: $peach;
+  height: 726px;
+  &__logo {
+    margin-top: 226px;
+    grid-column: 1/5;
+    position: relative;
+    z-index: 2;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 35%;
+      left: 40%;
+      width: 400px;
+      height: 295px;
+      background: linear-gradient(to left, transparent 20%, rgba($black,0.1), rgba($black,0.2));
+      transform: rotate(37deg);
+      z-index: -1;
+    }
+
+  }
+  &__right-block {
+    z-index: 2;
+    grid-column: 5/12;
+    margin-top: 132px;
+    margin-left: 65px;
+  }
+  &__text {
+    h2 {
+      color: $white;
+      font-size: 48px;
+      max-width: 410px;
+      letter-spacing: 0.3px;
+      line-height: 56px;
+      word-spacing: 2px;
+      margin-bottom: 0;
+    }
+    p {
+      color: $white;
+      font-size: 24px;
+      margin-top: 18px;
+    }
+  }
+  &__buttons {
+    max-width: 550px;
+    display: flex;
+    button {
+      @extend %button-base;
+      background-color: transparent;
+      max-height: 76px;
+      width: 256px;
+      margin-top: 20px;
+
+      img {
+        width: 53px;
+        height: 50px;
+      }
+
+      p {
+        @extend %button-text;
+        font-size: 30px;
+      }
+
+      &:hover {
+        p {
+          color: $peach;
+        }
+      }
+    }
+  }
+  &__play {
+    img {
+      width: 43px !important;
+      height: 47px !important;
+      margin-left: 6px;
+    }
+    margin-left:29px;
+  }
+  @include breakpoint(largeDesktop) {
+    &__logo {
+      margin-left: -80px;
+    }
+    &__right-block {
+      margin-left: 30px;
+    }
+  }
+  @include breakpoint(laptop) {
+    &__logo {
+      margin-left: -200px;
+    }
+    &__right-block {
+      margin-left: -150px;
+    }
+  }
+  @include breakpoint(md) {
+    &__right-block {
+      margin-left: -100px;
+      max-width: 450px;
+    }
+    &__logo {
+      margin-left: -100px;
+      img {
+        max-width: 200px;
+      }
+      &::before {
+        top: 25%;
+        width: 400px;
+        height: 230px;
+      }
+    }
+    &__buttons {
+      flex-direction: column;
+      max-width: 400px;
+    }
+    &__play {
+      margin: 0;
+    }
+  }
+
+  @include breakpoint(tablet) {
+    height: auto;
+    padding-bottom: 80px;
+    &__logo {
+      margin-left: 90px;
+      grid-column: 2/5;
+      &::before {
+        top: 55%;
+        left: 40%;
+      }
+    }
+    &__right-block {
+      margin-top: 50px;
+      margin-left: 90px;
+      grid-column: 1/8;
+      text-align: center;
+      p {
+        max-width: 410px;
+      }
+    }
+    &__buttons {
+      div {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  @include breakpoint(phablet) {
+    &__logo {
+      margin-left: 0;
+    }
+    &__right-block {
+      margin-left: 30px;
+    }
+  }
+
+  @include breakpoint(largePhone) {
+    &__logo {
+      margin-left: 0;
+      max-width: 310px;
+      margin-top: 120px;
+      grid-column: 1/5;
+      img {
+        max-width: 150px;
+      }
+      &::before {
+        top: 27%;
+        width: 200px;
+        height: 180px;
+      }
+    }
+    &__right-block {
+      margin-left: 0;
+      max-width: 310px;
+      h2 {
+        font-size: 36px;
+      }
+    }
+  }
+}
