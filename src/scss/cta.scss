@@ -122,6 +122,7 @@
     }
   }
 
+  // Text and buttons move under the logo(768px)
   @include breakpoint(tablet) {
     height: auto;
     padding-bottom: 80px;

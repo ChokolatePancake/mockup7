@@ -1,0 +1,146 @@
+.compatibility {
+  background-color: $lightest;
+  color: $light-grey;
+  padding-bottom: 115px;
+
+  &__title {
+    grid-column: 1/-1;
+    margin-top: 84px;
+    margin-left: 63px;
+    letter-spacing: 0.6px;
+    font-size: 24px;
+  }
+  &__bottom {
+    grid-column: 1/-2;
+    display: grid;
+    grid-template-columns: subgrid;
+    margin: -30px 36px 0 63px;
+    border-top: 2px solid rgba($lighter-grey,0.4);
+  }
+  &__text {
+    h3 {
+      margin-top: 34px;
+      margin-bottom: 0;
+    }
+    p {
+      line-height: 24px;
+      margin-top: 2px;
+      word-spacing: 0.5px;
+      margin-bottom: 27px;
+    }
+  }
+  &__ios {
+    grid-column: 1/7;
+    max-width: 430px;
+    img {
+      padding-left: 1px;
+    }
+  }
+  &__android {
+    grid-column: 7/12;
+    margin-left: -35px;
+    img {
+      padding-top: 8px;
+      padding-left: 2px;
+      &:first-child {
+        margin-right: -7px;
+      }
+    }
+  }
+
+  @include breakpoint(largeDesktop) {
+    &__bottom {
+      margin-left: 0;
+    }
+    &__title {
+      margin-left: 0;
+    }
+  }
+
+  @include breakpoint(desktop) {
+    &__android {
+      margin-left: -70px;
+    }
+    &__bottom {
+      margin-right: 90px;
+      margin-left: 40px;
+    }
+    &__title {
+      margin-left: 40px;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    &__bottom {
+      margin-right: 335px;
+    }
+    &__ios {
+      max-width: 270px;
+      grid-column: 1/5;
+    }
+    &__android {
+      max-width: 370px;
+      margin-left: -50px;
+      grid-column: 5/8;
+      img {
+        &:last-child {
+          margin-left: -8px;
+        }
+      }
+    }
+  }
+
+  // Block with android info goes down
+  @include breakpoint(tablet) {
+    &__bottom {
+      margin-right: 535px;
+    }
+    &__ios {
+      max-width: 450px;
+      grid-column: 1/9;
+    }
+    &__android {
+      grid-column: 1/9;
+      margin-top: 30px;
+      max-width: 450px;
+      margin-left: 0;
+      img {
+        &:last-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(phablet) {
+    &__bottom {
+      margin-right: 630px;
+      div {
+        max-width: 400px;
+      }
+    }
+  }
+
+  @include breakpoint(largePhone) {
+    text-align: center;
+    &__title {
+      max-width: 260px;
+      margin-left: 15px;
+
+    }
+    &__bottom {
+      margin-right: 780px;
+      margin-left: 15px;
+      div {
+        max-width: 260px;
+      }
+    }
+    &__android {
+      img {
+        &:last-child {
+          margin-left: -8px;
+        }
+      }
+    }
+  }
+}

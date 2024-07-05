@@ -170,6 +170,8 @@
     }
   }
 }
+
+// For full width images view but without horizontal scroll
 .splide {
   width: 100vw;
   overflow: hidden;
@@ -177,12 +179,16 @@
 .splide__track {
   width:2072px;
   overflow: visible;
+
+  // Images become smaller, so track have to become smaller too
   @include breakpoint(md) {
     width: 1600px;
   }
 
   @include breakpoint(phablet) {
     width: 600px;
+
+    // Images become bigger on hover
     &:hover {
       width: 650px;
       .splide {
