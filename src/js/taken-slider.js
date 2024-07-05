@@ -1,9 +1,8 @@
 // Slider with autoplay and pause when hovering
 document.addEventListener('DOMContentLoaded', function() {
-    const isMobile = window.innerWidth < 600;
     const splide = new Splide('.splide', {
         type: 'loop',
-        perPage: isMobile ? 2:4,
+        perPage: 4,
         perMove: 1,
         autoplay: false, // We  control this manually
         pauseOnHover: false,
@@ -12,6 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
         speed: 20000, // First point to change speed
         arrows: false,
         easing: 'linear',
+        breakpoints: {
+            600: {
+                perPage: 2,
+            }
+        }
     });
 
     // Initialize slider
