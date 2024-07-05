@@ -1,56 +1,57 @@
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.taken__like-button');
-    const numberText = document.querySelectorAll('.taken__count');
 
     // Function to load likes from local storage
     function loadLikes() {
-        buttons.forEach((button, index) => {
+        buttons.forEach((button) => {
+            let index = button.parentElement.dataset.index;
             const savedCount = localStorage.getItem(`likeCount${index}`);
             const isLiked = localStorage.getItem(`isLiked${index}`) === 'true';
-
-            if (savedCount !== null) {
-                numberText[index].innerText = savedCount;
-                if (isLiked) {
-                    button.classList.add("like");
-                } else {
-                    button.classList.remove("like");
+            let likes = document.querySelectorAll(`div[data-index="${index}"]`);
+            likes.forEach(like => {
+                if (savedCount !== null) {
+                    let numberElem = like.querySelector('.taken__count');
+                    let likeBtn = like.querySelector('.taken__like-button');
+                    numberElem.innerText = savedCount;
+                    if (isLiked) {
+                        likeBtn.classList.add("like");
+                    } else {
+                        likeBtn.classList.remove("like");
+                    }
                 }
-            }
+            });
         });
     }
 
     // Load like counts from local storage on page load
     loadLikes();
 
-    buttons.forEach((button, index) => {
+    buttons.forEach((button) => {
         button.addEventListener('click', () => {
-            // Get the current number from the p tag
-            let number = parseInt(numberText[index].innerText);
+            let index = button.parentElement.dataset.index;
+            let likes = document.querySelectorAll(`div[data-index="${index}"]`);
+            likes.forEach(like => {
+               let numberElem = like.querySelector('.taken__count');
+                let number = parseInt(numberElem.innerText);
+                let likeBtn = like.querySelector('.taken__like-button');
+                if (likeBtn.classList.contains("like")) {
+                    // If already liked, decrement the number
+                    number--;
+                    likeBtn.classList.remove("like");
+                    localStorage.setItem(`isLiked${index}`, 'false');
+                } else {
+                    // If not liked, increment the number
+                    number++;
+                    likeBtn.classList.add("like");
+                    localStorage.setItem(`isLiked${index}`, 'true');
+                }
 
-            if (button.classList.contains("like")) {
-                // If already liked, decrement the number
-                number--;
-                button.classList.remove("like");
-                localStorage.setItem(`isLiked${index}`, 'false');
-            } else {
-                // If not liked, increment the number
-                number++;
-                button.classList.add("like");
-                localStorage.setItem(`isLiked${index}`, 'true');
-            }
+                // Update the text content
+                numberElem.innerText = number;
 
-            // Update the text content
-            numberText[index].innerText = number;
-
-            // Save the updated count to local storage
-            localStorage.setItem(`likeCount${index}`, number);
+                // Save the updated count to local storage
+                localStorage.setItem(`likeCount${index}`, number);
+            });
         });
     });
-
-    // Reapply likes state whenever slider is interacted with
-    const slider = document.querySelector('.splide');
-    if (slider) {
-        slider.addEventListener('mouseenter', loadLikes);
-        slider.addEventListener('mouseleave', loadLikes);
-    }
 });
