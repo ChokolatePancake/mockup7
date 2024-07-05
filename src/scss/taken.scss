@@ -24,7 +24,7 @@
   &__like-button {
     background: none;
     border: none;
-    padding: 0;
+    padding: 10px;
     cursor: pointer;
     &:hover {
       svg path {
@@ -53,6 +53,7 @@
     }
   }
   &__block {
+    transition: all 0.3s ease;
     &:hover {
       margin-top: -37px;
       .taken__description {
@@ -76,12 +77,11 @@
   }
   &__like {
     display: flex;
-    //align-content: center;
     padding-right: 14px;
     p {
       padding: 9px 0 0 6px;
       color: $peach;
-      margin: 0;
+      margin: 0 0 0 -10px;
       font-size: 24px;
     }
   }
@@ -95,6 +95,79 @@
       width: 400px;
     }
   }
+
+  @include breakpoint(tablet) {
+    height: 686px;
+    &__text {
+      grid-column: 2/7;
+      text-align: center;
+      margin: 0 0 0 -70px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+  @include breakpoint(phablet) {
+    height: 647px;
+    &__photo {
+      max-width: 300px;
+      max-height: 300px;
+      margin-top: 80px;
+    }
+    &__description {
+      width: 300px;
+    }
+    &__text {
+      grid-column: 1/6;
+      text-align: center;
+      margin: 0 0 40px;
+    }
+    &__block {
+      &:hover {
+        margin-top: -80px;
+        margin-left: -25px;
+        .taken__photo {
+          max-width: 350px;
+          max-height: 350px;
+        }
+        .taken__description {
+          width: 350px;
+          &-text {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoint(largePhone) {
+    &__text {
+      grid-column: 1/4;
+      margin: 0 -20px 40px 20px;
+      h2 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+    &__block {
+      &:hover {
+        margin-top: -76px;
+        margin-left: -10px;
+        .taken__photo {
+          max-width: 320px;
+          max-height: 320px;
+        }
+        .taken__description {
+          width: 320px;
+          &-text {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
 }
 .splide {
   width: 100vw;
@@ -105,5 +178,24 @@
   overflow: visible;
   @include breakpoint(md) {
     width: 1600px;
+  }
+
+  @include breakpoint(phablet) {
+    width: 600px;
+    &:hover {
+      width: 650px;
+      .splide {
+        height: 500px;
+      }
+    }
+  }
+  @include breakpoint(largePhone) {
+    width: 600px;
+    &:hover {
+      width: 620px;
+      .splide {
+        height: 500px;
+      }
+    }
   }
 }

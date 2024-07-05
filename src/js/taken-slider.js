@@ -1,8 +1,9 @@
 // Slider with autoplay and pause when hovering
 document.addEventListener('DOMContentLoaded', function() {
+    const isMobile = window.innerWidth < 600;
     const splide = new Splide('.splide', {
         type: 'loop',
-        perPage: 4,
+        perPage: isMobile ? 2:4,
         perMove: 1,
         autoplay: false, // We  control this manually
         pauseOnHover: false,
