@@ -1,0 +1,192 @@
+.header {
+  position: sticky;
+  background-color: $peach;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  padding-top: 35px;
+
+  &__burger {
+    display: none;
+    cursor: pointer;
+  }
+
+  // For moving some left and not leave empty space
+  &__container {
+    width: 100%;
+    margin-left: -35px;
+  }
+
+  &__navigation {
+    grid-column: 4/13;
+    margin-left: 107px;
+    padding-top: 7px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      color: $white;
+      font-size: 18px;
+      font-weight: bold;
+      // White line upper text on hover
+      &:hover::before {
+        @extend %link-line-base;
+        background-color: $white;
+      }
+
+      &:not(:first-child) {
+        &:hover::before {
+          @extend %link-line-not-first;
+        }
+      }
+
+      // Show line when you on the section
+      &.show::before {
+        @extend %link-line-base;
+        background-color: rgba($white, 0.6);
+      }
+
+      &:not(:first-child) {
+        &.show::before {
+          @extend %link-line-not-first;
+        }
+      }
+    }
+  }
+  &.shadow {
+    box-shadow: 0 10px 50px $black;
+  }
+
+  @include breakpoint(largeDesktop) {
+    &__container {
+      margin-left: -85px;
+    }
+  }
+
+  @include breakpoint(desktop) {
+    &__navigation {
+      margin-left: 0;
+      grid-column: 4/12;
+    }
+    &__logo {
+      margin-left: 90px;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    &__container {
+      margin-left: -200px;
+    }
+    &__logo {
+      margin-left: 190px;
+      img {
+        max-width: 90px;
+        padding-top: 5px;
+      }
+    }
+    &__navigation {
+      grid-column: 4/11;
+    }
+  }
+
+  // Appears burger menu
+  @include breakpoint(largeTablet) {
+    &__logo {
+      grid-column: 3/4;
+      margin-left: 40px;
+    }
+    &__burger {
+      grid-column: 9/11;
+      display: block;
+      background-color: $peach;
+      margin-top: -7px;
+      margin-left: 50px;
+      padding: 5px;
+      border-radius: 5px;
+      max-height: 45px;
+      max-width: 45px;
+      &-line {
+        transition: transform 0.75s ease, opacity 0.75s ease;
+        display: block;
+        width: 45px;
+        height: 3px;
+        background-color: $white;
+        margin: 6px 0;
+      }
+      &.open {
+        .header__burger-line1 {
+          transform: translate(-10px) rotate(45deg) translate(13px);
+        }
+        .header__burger-line2 {
+          opacity: 0;
+        }
+        .header__burger-line3 {
+          transform: translate(-10px) rotate(-45deg) translate(15px);
+        }
+      }
+    }
+    &__navigation {
+      box-shadow: 0 20px 50px $black;
+      margin-top: -5px;
+      z-index: 0;
+      display: none;
+      &.show {
+        grid-column: 1/-1;
+        display: flex;
+        flex-direction: column;
+        background-color: $peach;
+        text-align: center;
+        }
+        a {
+          margin: 20px 0;
+          font-size: 24px;
+          &:hover::before {
+            background-color: transparent !important;
+          }
+          &:hover {
+            color: rgba($white, 0.7);
+          }
+          &.show::before {
+            background-color: transparent !important;
+          }
+        }
+      }
+    }
+  @include breakpoint(tablet) {
+    &__navigation {
+      margin-left: -180px;
+    }
+    &__logo {
+      grid-column: 3/4;
+    }
+    &__burger {
+      grid-column: 8/9;
+      margin-left: 0;
+    }
+  }
+  @include breakpoint(phablet) {
+    &__navigation {
+      margin-left: -280px;
+    }
+    &__logo {
+      grid-column: 3/4;
+    }
+    &__burger {
+      grid-column: 7/8;
+      margin-left: -20px;
+    }
+  }
+
+  @include breakpoint(largePhone) {
+    &__navigation {
+      margin-left: -450px;
+    }
+    &__burger {
+      grid-column: 5/6;
+      margin-left: 20px;
+    }
+  }
+}

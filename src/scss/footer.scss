@@ -1,14 +1,134 @@
 .footer {
-
+  background-color: $dark-white;
+  height: 227px;
+  &__subscribe {
+    grid-column:  7/12;
+    margin-left: 65px;
+    padding-top: 41px;
+    h4 {
+      color: $light-grey;
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
   &__message {
+    color: $lighter-grey;
     opacity: 0;
     &.show {
       opacity: 1;
     }
   }
+  &__copyrights {
+    grid-column: 1/5;
+    margin-top: 76px;
+    margin-left: 2px;
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: bold;
+      color: $light-grey;
+      letter-spacing: -1px;
+      word-spacing: 0.8px;
+      transform: scalex(1.2);
+    }
+  }
+  &__form {
+    // For comfortable positioning
+    display: grid;
+    width: 540px;
+    grid-template-columns: repeat(12, 35px);
+    gap: 11px;
+  }
   &__input {
-    &.error {
-      border-color: red;
+    grid-column: 1/8;
+    margin-top: -4px;
+    margin-left: -1px;
+    background-color: transparent;
+    padding: 12px 15px 14px;
+    border: 1px $lighter-grey solid;
+    border-radius: 5px;
+    margin-right: 1px;
+    // Highlight if trying to send empty or incorrect value
+    &.highlight-error {
+      border-color: $peach;
+    }
+  }
+  &__button {
+    grid-column: 8/10;
+    margin-left: -2px;
+    border: none;
+    border-radius: 5px;
+    margin-top: -5px;
+    background-color: $light-peach;
+    color: $white;
+    margin-right: -18px;
+  }
+
+  @include breakpoint(largeDesktop) {
+    &__copyrights {
+      margin-left: -43px;
+    }
+    &__subscribe {
+      margin-left: 20px;
+    }
+  }
+
+  @include breakpoint(desktop) {
+    &__copyrights {
+      margin-left: 40px;
+    }
+    &__subscribe {
+      margin-left: -40px;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    &__copyrights {
+      margin-left: 25px;
+    }
+    &__subscribe {
+      grid-column: 5/10;
+    }
+  }
+
+  @include breakpoint(largeTablet) {
+    height: 350px;
+    &__subscribe {
+      grid-column: 2/8;
+      padding: 0;
+    }
+    &__copyrights {
+      margin-top: 50px;
+      grid-column: 2/8;
+      margin-left: 15px;
+    }
+  }
+
+  @include breakpoint(phablet) {
+    &__input {
+      grid-column: 1/6;
+    }
+    &__button {
+      grid-column: 6/8;
+    }
+  }
+
+  @include breakpoint(largePhone) {
+    height: 380px;
+    &__copyrights {
+      margin-left: -30px;
+    }
+    &__subscribe {
+      margin-left: -90px;
+    }
+    &__input {
+      grid-column: 1/7;
+      margin-right: -18px;
+    }
+    &__button {
+      margin-top: 10px;
+      grid-column: 1/7;
+      height: 50px;
     }
   }
 }

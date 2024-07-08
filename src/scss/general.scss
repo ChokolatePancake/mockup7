@@ -87,3 +87,18 @@
   padding-left: 16px;
   margin: auto 0;
 }
+
+%link-line-base {
+  content: '';
+  position: absolute;
+  top: -42px;
+  left: -50%;
+  width: 180%;
+  height: 5px;
+  z-index: 101;
+}
+
+%link-line-not-first {
+  width: 160%;
+  left: -30%;
+}
