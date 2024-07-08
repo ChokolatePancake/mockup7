@@ -74,6 +74,9 @@
   }
 
   @include breakpoint(desktop) {
+    &__message {
+      max-width: 350px;
+    }
     &__copyrights {
       margin-left: 40px;
     }
@@ -110,6 +113,9 @@
     }
     &__button {
       grid-column: 6/8;
+    }
+    &__message {
+      max-width: 310px;
     }
   }
 
