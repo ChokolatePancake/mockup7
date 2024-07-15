@@ -8,9 +8,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "browser-sync": "^3.0.2",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
-    "browser-sync": "^3.0.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -35,10 +35,5 @@
     "url": "https://github.com/ChokolatePancake/mockup7/issues"
   },
   "homepage": "https://github.com/ChokolatePancake/mockup7#readme",
-  "description": "",
-  "devDependencies": {
-    "bootstrap": "^3.4.1",
-    "jquery": "^3.7.1",
-    "popper.js": "^1.16.1"
-  }
+  "description": ""
 }

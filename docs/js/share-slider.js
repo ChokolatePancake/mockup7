@@ -1,0 +1,1 @@
+$(document).ready((function(){$(".share__content").slick({slidesToShow:1,autoplay:!0,speed:500,autoplaySpeed:1e4,infinite:!0,fade:!0,arrows:!1,dots:!0,dotsClass:"share__dots"})}));

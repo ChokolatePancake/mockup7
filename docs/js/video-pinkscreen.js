@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(function(){document.querySelectorAll(".share__video-block").forEach((e=>{const o=e.querySelector(".share__video-preview"),t=e.querySelector(".share__video");o.addEventListener("click",(function(){o.style.display="none",t.style.display="block"}))}))}));
